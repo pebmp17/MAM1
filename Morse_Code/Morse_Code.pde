@@ -56,24 +56,23 @@ void keyTyped() {
 
 void morseDisplay (char c,int x1, int x2, int x3, int x4, int y){
   String[] morse;
-  //try{
-    for (morseTrans o: morseDict){
-      if (c == o.alfabeto){
-        morse = o.morse.split("-");
-        if (morse[0].equals("dot")) ellipse(x1,y,70,70);
-        else if (morse[0].equals("dash")) rect(x1,y,50,20);
+  for (morseTrans o: morseDict){
+    if (c == o.alfabeto){
+      morse = o.morse.split("-");
+      if (morse[0].equals("dot")) ellipse(x1,y,70,70);
+      else if (morse[0].equals("dash")) rect(x1,y,50,20);
 
-        if (morse[1].equals("dot")) ellipse (x2,y,70,70);
-        else if(morse[1].equals("dash")) rect (x2,y,70,20);
-        else break;
+      if (morse[1].equals("dot")) ellipse (x2,y,70,70);
+      else if(morse[1].equals("dash")) rect (x2,y,70,20);
+      else break;
 
-        if(morse[2].equals("dot")) ellipse(x3,y,70,70);
-        else if(morse[2].equals("dash")) rect(x3,y,70,20);
-        else break;
+      if(morse[2].equals("dot")) ellipse(x3,y,70,70);
+      else if(morse[2].equals("dash")) rect(x3,y,70,20);
+      else break;
 
-        if(morse[3].equals("dot")) ellipse(x4,y,70,70);
-        else if (morse[3].equals("dash")) rect (x4,y,70,20);
-        else break;
+      if(morse[3].equals("dot")) ellipse(x4,y,70,70);
+      else if (morse[3].equals("dash")) rect (x4,y,70,20);
+      else break;
      }
   }
 }
