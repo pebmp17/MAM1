@@ -1,8 +1,6 @@
 morseTrans[] morseDict = new morseTrans[26];
 char letter;
 
-
-
 void setup() {
   morseDict[0] = new morseTrans('A', "dot-dash-end");
   morseDict[1] = new morseTrans('B', "dash-dot-dot-dot-end");
@@ -31,12 +29,12 @@ void setup() {
   morseDict[24] = new morseTrans('Y', "dash-dot-dash-dash-end");
   morseDict[25] = new morseTrans('Z', "dash-dash-dot-dot-end");
 
+  rectMode(CENTER);
   noLoop();
   size(640, 360);
 }
 
 void draw() {
-
   background(33,33,33);
   textSize(14);
   text("Digite uma letra para ver sua tradução em código morse", 20, 50);
@@ -44,7 +42,6 @@ void draw() {
   text(letter, 50, 120);
   fill(255);
   noStroke();
-  rectMode(CENTER);
   morseDisplay(letter,160,250,340,430,250);
 }
 
@@ -75,7 +72,6 @@ void morseDisplay (char c,int x1, int x2, int x3, int x4, int y){
       else break;
      }
   }
-  saveFrame();
 }
 
 class morseTrans {
