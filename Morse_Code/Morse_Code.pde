@@ -37,7 +37,7 @@ void setup() {
 
 void draw() {
 
-  background(0);
+  background(33,33,33);
   textSize(14);
   text("Digite uma letra para ver sua tradução em código morse", 20, 50);
   textSize(36);
@@ -75,6 +75,7 @@ void morseDisplay (char c,int x1, int x2, int x3, int x4, int y){
       else break;
      }
   }
+  saveFrame();
 }
 
 class morseTrans {
