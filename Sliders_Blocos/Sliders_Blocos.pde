@@ -19,19 +19,19 @@ void bloco(int x,int y, int t){
 }
 
 void setup(){
-  size(600,650);
+  size(400,450);
    gui = new ControlP5(this);
    gui.addSlider("linhas")
-       .setRange(0,6)
+       .setRange(0,4)
        .setValue(linhas)
        .setPosition(20,15)
        .setSize(130,20)
        .setColorLabel(color(57,158,168));
    gui2 = new ControlP5(this);
    gui.addSlider("colunas")
-       .setRange(0,6)
+       .setRange(0,4)
        .setValue(colunas)
-       .setPosition(420,15)
+       .setPosition(220,15)
        .setSize(130,20)
        .setColorLabel(color(57,158,168));
   check[0]=0; check[1]=0;
