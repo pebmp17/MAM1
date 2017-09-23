@@ -45,6 +45,9 @@ void draw(){
     for(int i=0; i<round(colunas);i++)
       for(int j=0; j<round(linhas);j++)
         bloco(100*i, 100*j+50, 100);
+    gui.draw(this);
+    gui2.draw(this);
+    saveFrame();
   }
    check[0] = linhas;
    check[1] = colunas;

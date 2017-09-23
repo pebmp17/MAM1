@@ -5,3 +5,4 @@ Exercícios para a disciplina de Matemática Aplicada a Multimídia 1 do curso d
 #### Tarefa 01 - Morse_Code
 #### Tarefa 02 - Debug
 #### Tarefa 03 - Sliders_Blocos
+#### Tarefa 04 - Carros_MRU
