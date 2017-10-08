@@ -8,3 +8,9 @@ Exercícios para a disciplina de Matemática Aplicada a Multimídia 1 do curso d
 #### Tarefa 04 - Carros_MRU
 #### Tarefa 05 - Bolas_MRUV
 #### Tarefa 06 - Bandeira_Brasil
+#### Tarefa 07 - Adaptive_Logo
+#### Tarefa 08 - Interpolacao2D
+#### Tarefa 09 - Breakout
+#### Tarefa 10 - Round_Button
+#### Tarefa 11 - Bitmap_keyPressed()
+#### Tarefe 12 - Isometric Map
