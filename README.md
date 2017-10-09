@@ -13,4 +13,4 @@ Exercícios para a disciplina de Matemática Aplicada a Multimídia 1 do curso d
 #### Tarefa 09 - Breakout
 #### Tarefa 10 - Round_Button
 #### Tarefa 11 - Bitmap_keyPressed()
-#### Tarefe 12 - Isometric Map
+#### Tarefe 12 - Isometric_Map
