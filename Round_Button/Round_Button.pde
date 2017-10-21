@@ -26,8 +26,6 @@ void draw() {
     ellipse(xBox+(circleSize/2),yBox+(circleSize/2)+boxHeight,circleSize,circleSize);
     ellipse(xBox+(circleSize/2)+boxWidth,yBox+(circleSize/2)+boxHeight,circleSize,circleSize);
     fill(0);
-    rectMode(CENTER);
-    rect(width/2,height/2,30,30);
 }
 
 void mouseClicked(){
@@ -39,8 +37,6 @@ void mouseClicked(){
     checkCollisionCircle(xBox+(circleSize/2),yBox+(circleSize/2)+boxHeight,circleSize))||
     checkCollisionCircle(xBox+(circleSize/2)+boxWidth,yBox+(circleSize/2)+boxHeight,circleSize)){
         clickDetected = true;
-        println(xBox,yBox);
-        println(boxWidth+circleSize,boxHeight+circleSize);
     }
     else{
         clickDetected= false;
