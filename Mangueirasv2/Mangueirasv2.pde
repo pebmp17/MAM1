@@ -42,23 +42,21 @@ void setup() {
 }
 
 void draw() {
-  if((contador>=0)&&(contador<120)){
+  if((contador>=0)&&(contador<120))
     quadroQ1.criarQuadro();
-  }
-  if((contador>=120)&&(contador<240))
+  else if((contador>=120)&&(contador<240))
     quadroQ2.criarQuadro();
-  if((contador>=240)&&(contador<360))
+  else if((contador>=240)&&(contador<360))
     quadroQ3.criarQuadro();
-  if((contador>=360)&&(contador<480))
+  else if((contador>=360)&&(contador<480))
     quadroQ4.criarQuadro();
-  if(contador>=480){
+  else if(contador>=480){
     contador =0;
     quadroQ1 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ1, posicaoQuebrasTopDownQ1, posicaoQuebrasLeftRightQ1, espessuraQ1, coresRGBQ1);
     quadroQ2 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ2, posicaoQuebrasTopDownQ2, posicaoQuebrasLeftRightQ2, espessuraQ2, coresRGBQ2);
     quadroQ3 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ3, posicaoQuebrasTopDownQ3, posicaoQuebrasLeftRightQ3, espessuraQ3, coresRGBQ3);
     quadroQ4 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ4, posicaoQuebrasTopDownQ4, posicaoQuebrasLeftRightQ4, espessuraQ4, coresRGBQ4);
   }
-   println(contador);
    contador++;
 }
 
@@ -82,7 +80,7 @@ void semiCirculo (float x, float y, float tamanho, String orientacao) {
 }
 
 class Mangueiras {
-  int divisao, divisaoInicial;
+  int divisao;
   float xInicial, xFinal, yInicial, yFinal, espessura;
   String[] posQuebraTopDown, posQuebraLeftRight;
   color[] coresCamadas;
@@ -93,7 +91,6 @@ class Mangueiras {
     this.xFinal = xFinal;
     this. yFinal = yFinal;
     this.divisao = divisao;
-    this.divisaoInicial = divisao;
     this.posQuebraTopDown = posQuebraTopDown;
     this.posQuebraLeftRight = posQuebraLeftRight;
     this.espessura = espessura;
@@ -105,7 +102,7 @@ class Mangueiras {
     if (quebra.length>1) {
       if (quebra[1].equals("externa")){
         fill(coresCamadas[divisao]);
-      } 
+      }
       else if (quebra[1].equals("interna")) {
         fill(coresCamadas[divisao-2]);
       }
@@ -203,7 +200,7 @@ class Mangueiras {
     if (quebra.length>1) {
       if (quebra[1].equals("externa")){
         fill(coresCamadas[divisao]);
-      } 
+      }
       else if (quebra[1].equals("interna")) {
        fill(coresCamadas[divisao-2]);
       }
@@ -307,8 +304,5 @@ class Mangueiras {
       yFinal-=espessura;
       divisao--;
     }
-  }
-  void resetarDivisao(){
-    divisao=divisaoInicial;
   }
 }
