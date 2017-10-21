@@ -13,4 +13,7 @@ Exercícios para a disciplina de Matemática Aplicada a Multimídia 1 do curso d
 #### Tarefa 09 - Breakout
 #### Tarefa 10 - Round_Button
 #### Tarefa 11 - Bitmap_keyPressed()
-#### Tarefe 12 - Isometric_Map
+#### Tarefa 12 - Isometric_Map
+
+#### Trabalho 01 - Mangueiras
+Trabalho que tenta analisar as relações presentes nas obras da Série Mangueiras do artista Ivan Serpa, e por meio do Processing tentar criar quadros similiares ao do artista.

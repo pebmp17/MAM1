@@ -1,66 +1,105 @@
-//Quadro1  //<>//
-String posicaoQuebrasTopDownQ1[] = {"0", "vazio", "vazio","meio@interna" ,"vazio", "vazio"};
-String posicaoQuebrasLeftRightQ1[] = {"0", "vazio", "vazio", "meio@externa", "meio@externa", "meio@externa"};
+//Quadro1
+String posicaoQuebrasTopDownQ1[] = {"0", "vazio", "vazio", "meio@interna", "vazio", "vazio", " ", " "};
+String posicaoQuebrasLeftRightQ1[] = {"0", "vazio", "vazio", "meio@externa", "meio@externa", "meio@externa", " ", " "};
 int numeroDivisoesQ1= 5;
-float espessuraQ1 = 58;
 color coresRGBQ1[] = {color(205, 75, 73), color(108, 169, 214), color(222, 221, 201), color(50, 157, 43), color(45, 47, 46), color(207, 198, 167)};
+color coresHSVQ1[] = new color[6];
 
 //Quadro2
-String posicaoQuebrasTopDownQ2[] = {"0", "vazio", "meio@externa","vazio" ,"meio@interna", "terco@externa"};
-String posicaoQuebrasLeftRightQ2[] = {"0", "vazio", "vazio", "meio@interna", "vazio", "meio@interna"};
+String posicaoQuebrasTopDownQ2[] = {"0", "vazio", "meio@externa", "vazio", "meio@interna", "terco@externa", " ", " "};
+String posicaoQuebrasLeftRightQ2[] = {"0", "vazio", "vazio", "meio@interna", "vazio", "meio@interna", " ", " "};
 int numeroDivisoesQ2= 5;
-float espessuraQ2= 58;
 color coresRGBQ2[] = {color(51, 84, 89), color(229, 218, 186), color(136, 174, 113), color(227, 212, 181), color(223, 104, 84), color(207, 198, 167)};
+color coresHSVQ2[] = new color[6];
+
 
 //Quadro3
-String posicaoQuebrasTopDownQ3[] = {"0", "vazio", "vazio", "vazio", "meio@externa", "meio@externa", "meio@externa"};
-String posicaoQuebrasLeftRightQ3[] = {"0", "vazio", "vazio", "vazio", "meio@interna", "vazio", "vazio"};
+String posicaoQuebrasTopDownQ3[] = {"0", "vazio", "vazio", "vazio", "meio@externa", "meio@externa", "meio@externa", " "};
+String posicaoQuebrasLeftRightQ3[] = {"0", "vazio", "vazio", "vazio", "meio@interna", "vazio", "vazio", " "};
 int numeroDivisoesQ3= 6;
-float espessuraQ3= 50;
 color coresRGBQ3[] = {color(224, 218, 206), color(30, 30, 30), color(134, 139, 55), color(185, 34, 25), color(52, 68, 57), color(30, 30, 30), color(207, 198, 167)};
+color coresHSVQ3[] = new color[7];
+
 
 //Quadro4
-String posicaoQuebrasTopDownQ4[] = {"0","vazio","vazio", "vazio", "meio@externa", "meio@externa", "meio@externa", "corner@externa"};
-String posicaoQuebrasLeftRightQ4[] = {"0","vazio", "meio@interna", "vazio", "vazio", "meio@externa", "meio@externa", "vazio"};
+String posicaoQuebrasTopDownQ4[] = {"0", "vazio", "vazio", "vazio", "meio@externa", "meio@externa", "meio@externa", "corner@externa"};
+String posicaoQuebrasLeftRightQ4[] = {"0", "vazio", "meio@interna", "vazio", "vazio", "meio@externa", "meio@externa", "vazio"};
 int numeroDivisoesQ4= 7;
-float espessuraQ4= 41;
-color coresRGBQ4[] = {color(1,79,102),color(9, 39, 125), color(189, 29, 17), color(22, 160, 162), color(40, 127, 206), color(222, 49, 42), color(21, 126, 147), color(207, 198, 167)};
+color coresRGBQ4[] = {color(1, 79, 102), color(9, 39, 125), color(189, 29, 17), color(22, 160, 162), color(40, 127, 206), color(222, 49, 42), color(21, 126, 147), color(207, 198, 167)};
+color coresHSVQ4[] = new color[8];
 
-Mangueiras quadroQ1,quadroQ2,quadroQ3,quadroQ4,q1,q2,q3,q4;
-int contador =0;
+//QuadroRandom
+String[] quadroAleatorioTopDown;
+String[] quadroAleatorioLeftRight;
+int numeroDivisoesQR;
+color coresRGBQR[] = new color[numeroDivisoesQR];
+color coresHSVQR[] = new color[numeroDivisoesQR];
+
+Mangueira quadroQ1, quadroQ2, quadroQ3, quadroQ4, quadroQR;
+int contador = 0, tempo = 120;
+
+boolean print = false;
+String existentesTopDown[][] =  new String[4][8];
+String existentesLeftRight[][] =  new String[4][8];
 
 void setup() {
   size(600, 600);
   noStroke();
+  colorMode(HSB, 360, 100, 100);
   frameRate(60);
-  //colorMode(HSB, 360,100,100);
   background(207, 198, 167);
-  quadroQ1 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ1, posicaoQuebrasTopDownQ1, posicaoQuebrasLeftRightQ1, espessuraQ1, coresRGBQ1);
-  quadroQ2 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ2, posicaoQuebrasTopDownQ2, posicaoQuebrasLeftRightQ2, espessuraQ2, coresRGBQ2);
-  quadroQ3 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ3, posicaoQuebrasTopDownQ3, posicaoQuebrasLeftRightQ3, espessuraQ3, coresRGBQ3);
-  quadroQ4 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ4, posicaoQuebrasTopDownQ4, posicaoQuebrasLeftRightQ4, espessuraQ4, coresRGBQ4);
+  coresHSVQ1[0] = color(0.91, 64.39, 80.39); coresHSVQ1[1] = color(205.47, 49.53, 83.92); coresHSVQ1[2] = color(57.14, 9.46, 87.06); coresHSVQ1[3] = color(116.32, 72.61, 61.57); coresHSVQ1[4] = color(150, 4.26, 18.43); coresHSVQ1[5] = color(46.5, 19.32, 81.18);
+  coresHSVQ2[0] = color(187.89, 42.7, 34.9); coresHSVQ2[1] = color(44.65, 18.78, 89.8); coresHSVQ2[2] = color(97.38, 35.06, 68.24); coresHSVQ2[3] = color(40.43, 20.26, 89.02); coresHSVQ2[4] = color(8.63, 62.33, 87.45); coresHSVQ2[5] = color(46.5, 19.32, 81.18);
+  coresHSVQ3[0] = color(40, 8.04, 87.84); coresHSVQ3[1] = color(0, 0, 11.76); coresHSVQ3[2] = color(63.57, 60.43, 54.51); coresHSVQ3[3] = color(3.38, 86.49, 72.55); coresHSVQ3[4] = color(138.75, 23.53, 26.67); coresHSVQ3[5] = color(0, 0, 11.76); coresHSVQ3[6] = color(46.5, 19.32, 81.18);
+  coresHSVQ4[0] = color(193.66, 99.02, 40); coresHSVQ4[1] = color(224.48, 92.8, 49.02); coresHSVQ4[2] = color(4.19, 91.01, 74.12); coresHSVQ4[3] = color(180.86, 86.42, 63.53); coresHSVQ4[4] = color(208.55, 80.58, 80.78); coresHSVQ4[5] = color(2.33, 81.08, 87.06); coresHSVQ4[6] = color(190, 85.71, 57.65); coresHSVQ4[7] = color(46.5, 19.32, 81.18);
+  existentesTopDown[0] = posicaoQuebrasTopDownQ1;
+  existentesTopDown[1] = posicaoQuebrasTopDownQ2;
+  existentesTopDown[2] = posicaoQuebrasTopDownQ3;
+  existentesTopDown[3] = posicaoQuebrasTopDownQ4;
+  existentesLeftRight[0] = posicaoQuebrasLeftRightQ1;
+  existentesLeftRight[1] = posicaoQuebrasLeftRightQ2;
+  existentesLeftRight[2] = posicaoQuebrasLeftRightQ3;
+  existentesLeftRight[3] = posicaoQuebrasLeftRightQ4;
+  numeroDivisoesQR = round(random(5, 7));
+  coresRGBQR = gerarCores(numeroDivisoesQR+1);
+  quadroAleatorioTopDown = gerarQuadroAleatorioTopDown(numeroDivisoesQR);
+  quadroAleatorioLeftRight = gerarQuadroAleatorioLeftRight(numeroDivisoesQR);
+  quadroQ1 = new Mangueira (0, 0, width, height, numeroDivisoesQ1, posicaoQuebrasTopDownQ1, posicaoQuebrasLeftRightQ1, coresHSVQ1);
+  quadroQ2 = new Mangueira (0, 0, width, height, numeroDivisoesQ2, posicaoQuebrasTopDownQ2, posicaoQuebrasLeftRightQ2, coresHSVQ2);
+  quadroQ3 = new Mangueira (0, 0, width, height, numeroDivisoesQ3, posicaoQuebrasTopDownQ3, posicaoQuebrasLeftRightQ3, coresHSVQ3);
+  quadroQ4 = new Mangueira (0, 0, width, height, numeroDivisoesQ4, posicaoQuebrasTopDownQ4, posicaoQuebrasLeftRightQ4, coresHSVQ4);
+  quadroQR = new Mangueira (0, 0, width, height, numeroDivisoesQR, quadroAleatorioTopDown, quadroAleatorioLeftRight, coresRGBQR);
 }
 
 void draw() {
-  if((contador>=0)&&(contador<120))
+  if ((contador>=0)&&(contador<120))
     quadroQ1.criarQuadro();
-  else if((contador>=120)&&(contador<240))
+  else if ((contador>=tempo)&&(contador<tempo*2))
     quadroQ2.criarQuadro();
-  else if((contador>=240)&&(contador<360))
+  else if ((contador>=tempo*2)&&(contador<tempo*3))
     quadroQ3.criarQuadro();
-  else if((contador>=360)&&(contador<480))
+  else if ((contador>=tempo*3)&&(contador<tempo*4)) {
     quadroQ4.criarQuadro();
-  else if(contador>=480){
-    contador =0;
-    quadroQ1 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ1, posicaoQuebrasTopDownQ1, posicaoQuebrasLeftRightQ1, espessuraQ1, coresRGBQ1);
-    quadroQ2 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ2, posicaoQuebrasTopDownQ2, posicaoQuebrasLeftRightQ2, espessuraQ2, coresRGBQ2);
-    quadroQ3 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ3, posicaoQuebrasTopDownQ3, posicaoQuebrasLeftRightQ3, espessuraQ3, coresRGBQ3);
-    quadroQ4 = new Mangueiras (10, 10, width-10, height-10, numeroDivisoesQ4, posicaoQuebrasTopDownQ4, posicaoQuebrasLeftRightQ4, espessuraQ4, coresRGBQ4);
+  } else if ((contador>=tempo*4)&&(contador<tempo*8)) {
+    quadroQR.criarQuadro();
+    print = true;
+  } else if (contador>=tempo*8) {
+    contador = 0;
+    quadroQ1 = new Mangueira (0, 0, width, height, numeroDivisoesQ1, posicaoQuebrasTopDownQ1, posicaoQuebrasLeftRightQ1, coresHSVQ1);
+    quadroQ2 = new Mangueira (0, 0, width, height, numeroDivisoesQ2, posicaoQuebrasTopDownQ2, posicaoQuebrasLeftRightQ2, coresHSVQ2);
+    quadroQ3 = new Mangueira (0, 0, width, height, numeroDivisoesQ3, posicaoQuebrasTopDownQ3, posicaoQuebrasLeftRightQ3, coresHSVQ3);
+    quadroQ4 = new Mangueira (0, 0, width, height, numeroDivisoesQ4, posicaoQuebrasTopDownQ4, posicaoQuebrasLeftRightQ4, coresHSVQ4);
+    numeroDivisoesQR = round(random(5, 7));
+    coresRGBQR = gerarCores(numeroDivisoesQR+1);
+    quadroAleatorioTopDown = gerarQuadroAleatorioTopDown(numeroDivisoesQR);
+    quadroAleatorioLeftRight = gerarQuadroAleatorioLeftRight(numeroDivisoesQR);
+    quadroQR = new Mangueira (0, 0, width, height, numeroDivisoesQR, quadroAleatorioTopDown, quadroAleatorioLeftRight, coresRGBQR);
+  } //<>//
+  if (contador == tempo*5) {
+    saveFrame();
   }
-   contador++;
+  contador++;
 }
-
-
 
 void semiCirculo (float x, float y, float tamanho, String orientacao) {
   switch(orientacao) {
@@ -79,13 +118,59 @@ void semiCirculo (float x, float y, float tamanho, String orientacao) {
   }
 }
 
-class Mangueiras {
+color[] gerarCores(int tamanho) {
+  color[] coresGeradas = new color[tamanho];
+  for (int i= 0; i<tamanho; i++) {
+    coresGeradas[i] = color(random(360), random(100), random(100));
+  }
+  coresGeradas[tamanho-1] = color(46.5, 19.32, 81.18);
+  return coresGeradas;
+}
+
+String[] gerarQuadroAleatorioTopDown(int limite) {
+  String[] quadroAleatorio = new String[8];
+  int x, i = 0;
+  while (i<=limite) {
+    x = int(random(0, existentesTopDown.length));
+    if (existentesTopDown[x][i] != null) {
+      quadroAleatorio[i] = existentesTopDown[x][i];
+    }
+    if (!existentesTopDown[x][i].equals(" ")) {
+      i++;
+    }
+  }
+  return quadroAleatorio;
+}
+
+String[] gerarQuadroAleatorioLeftRight(int limite) {
+  String[] quadroAleatorio = new String[8];
+  int x, i = 0;
+  while (i<=limite) {
+    x = int(random(0, existentesLeftRight.length));
+    if (existentesLeftRight[x][i] != null) {
+      quadroAleatorio[i] = existentesLeftRight[x][i];
+    }
+
+    if (!existentesLeftRight[x][i].equals(" ")) {
+      if (i!=0) {
+        if (!((((existentesLeftRight[x][i].indexOf("interna") !=-1)&&(existentesLeftRight[x][i-1].indexOf("externa") !=-1)))||(((existentesLeftRight[x][i].indexOf("externa") !=-1)&&(existentesLeftRight[x][i-1].indexOf("interna") !=-1))))) {
+          i++;
+        }
+      } else {
+        i++;
+      }
+    }
+  }
+  return quadroAleatorio;
+}
+
+class Mangueira {
   int divisao;
   float xInicial, xFinal, yInicial, yFinal, espessura;
   String[] posQuebraTopDown, posQuebraLeftRight;
   color[] coresCamadas;
 
-  Mangueiras (float xInicial, float yInicial, float xFinal, float yFinal, int divisao, String[] posQuebraTopDown, String[] posQuebraLeftRight, float espessura, color[] coresCamadas) {
+  Mangueira (float xInicial, float yInicial, float xFinal, float yFinal, int divisao, String[] posQuebraTopDown, String[] posQuebraLeftRight, color[] coresCamadas) {
     this.xInicial = xInicial;
     this.yInicial = yInicial;
     this.xFinal = xFinal;
@@ -93,21 +178,26 @@ class Mangueiras {
     this.divisao = divisao;
     this.posQuebraTopDown = posQuebraTopDown;
     this.posQuebraLeftRight = posQuebraLeftRight;
-    this.espessura = espessura;
+    if (divisao == 5) {
+      this.espessura = 58;
+    } else if (divisao == 6) {
+      this.espessura = 50;
+    } else if (divisao == 7) {
+      this.espessura = 41;
+    }
     this.coresCamadas= coresCamadas;
   }
 
   void criarLados() {
     String[] quebra = posQuebraTopDown[divisao].split("@");
     if (quebra.length>1) {
-      if (quebra[1].equals("externa")){
+      if (quebra[1].equals("externa")) {
         fill(coresCamadas[divisao]);
-      }
-      else if (quebra[1].equals("interna")) {
+      } else if (quebra[1].equals("interna")) {
         fill(coresCamadas[divisao-2]);
       }
       rect(xInicial, yInicial, xFinal-xInicial, espessura);
-      rect(xInicial,yFinal-espessura,xFinal-xInicial,espessura);
+      rect(xInicial, yFinal-espessura, xFinal-xInicial, espessura);
     }
     fill(coresCamadas[divisao-1]);
     if (quebra[0].equals("corner")) {
@@ -198,16 +288,15 @@ class Mangueiras {
 
     quebra = posQuebraLeftRight[divisao].split("@");
     if (quebra.length>1) {
-      if (quebra[1].equals("externa")){
+      if (quebra[1].equals("externa")) {
         fill(coresCamadas[divisao]);
-      }
-      else if (quebra[1].equals("interna")) {
-       fill(coresCamadas[divisao-2]);
+      } else if (quebra[1].equals("interna")) {
+        fill(coresCamadas[divisao-2]);
       }
       rect(xInicial, yInicial, espessura, yFinal-yInicial);
-      rect(xFinal-espessura,yInicial,espessura,yFinal-yInicial);
-     }
-     fill(coresCamadas[divisao-1]);
+      rect(xFinal-espessura, yInicial, espessura, yFinal-yInicial);
+    }
+    fill(coresCamadas[divisao-1]);
     if (quebra[0].equals("corner")) {
       rect(xInicial, yInicial, espessura, espessura);
       if (quebra[1].equals("externa")) {
@@ -291,7 +380,7 @@ class Mangueiras {
       rect(xFinal-espessura, ((yFinal-yInicial)/2)+yInicial+espessura, espessura, (yFinal-((yFinal-yInicial)/2)-yInicial-espessura));
     } else if (quebra[0].equals("vazio")) {
       rect(xInicial, yInicial, espessura, yFinal-yInicial);
-
+      rect(width/2-espessura, height/2-espessura, 2*espessura, 2*espessura); //gambiarra
       rect(xFinal-espessura, yInicial, espessura, yFinal-yInicial);
     }
   }
