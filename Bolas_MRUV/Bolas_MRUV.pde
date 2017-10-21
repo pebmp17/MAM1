@@ -1,12 +1,15 @@
+float vInicialx = 30;
+float vInicialy = 50;
+float aAtual =  10;
+
+float dAtualx=0;
+float dAtualy=0;
+
 float tAtual = 0;
-float vInicialx = 10;
-float vInicialy = 30;
-float aAtual = - 10;
-float dAtualx;
-float dAtualy;
 float[] pos  = new float[2];
+
 void setup(){
-  size(600,600);
+  size(800,600);
   frameRate(10);
 }
 
@@ -14,23 +17,23 @@ void draw(){
   background(255);
   mostraMundo(50);
   pos = lancamento(vInicialx,vInicialy,aAtual,tAtual);
-  println("dx: "+ dAtualx + " dy: "+ dAtualy + " a: "+ aAtual);
-  ellipse(pos[0],pos[1], 10, 10);
+  dAtualx += pos[0]/60;
+  dAtualy += pos[1]/60;
+  if (dAtualy < 0) {
+    tAtual = 0;
+    vInicialx = vInicialx/2;
+    vInicialy = vInicialy/2;
+    dAtualy = -dAtualy;
+  }
+  if (dAtualy > 600) {
+    tAtual = 0;
+    vInicialx = vInicialx/2;
+    vInicialy = vInicialy/2;
+    dAtualy = -dAtualy;
+  }
+  println("dx: "+ dAtualx + " dy: "+ dAtualy + " a: "+ aAtual + " tAtual: "+tAtual);
+  ellipse(dAtualx,dAtualy, 10, 10);
   tAtual++;
-  if (pos[0] <0) pos[0] = 0;
-  if (pos[1] <0) pos[1] = 0;
-}
-
-float MRUV(float v, float a, float t){
-  float d;
-  d = (v*t + a*t*t/ 2);
-  return(d);
-}
-
-float MRU (float t, float v){
-  float d;
-  d = v*t;
-  return(d);
 }
 
 float[] lancamento(float vx, float vy, float a, float t){
@@ -38,6 +41,18 @@ float[] lancamento(float vx, float vy, float a, float t){
   result[0] = MRU(vx,t);
   result[1] = MRUV(vy,a,t);
   return(result);
+}
+
+float MRUV(float v, float a, float t){
+    float d;
+    d = (v * t + a * t * t / 2);
+    return(d);
+}
+
+float MRU (float t, float v){
+  float d;
+  d = v*t;
+  return(d);
 }
 
 void mostraMundo(int tamanho){
