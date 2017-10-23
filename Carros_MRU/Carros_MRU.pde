@@ -9,7 +9,7 @@ float[] xCarros = new float [20];
 
 void setup() {
   size(600,600);
-  frameRate(1);
+  frameRate(10);
   for(int i = 0; i<20; i++){
     vCarros[i] = random(1,12);
     fCarros[i][0] = random(255);
@@ -32,7 +32,10 @@ void draw(){
   }
   else{
     noLoop();
-    println ("O vencedor foi o carro " + indVencedor);
+    background(180);
+    textSize(30);
+    text("O vencedor foi o carro " + indVencedor, width/2-200, height/2);
+    //println ("O vencedor foi o carro " + indVencedor);
   }
 }
 
