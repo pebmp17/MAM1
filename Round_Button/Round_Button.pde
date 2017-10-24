@@ -16,16 +16,20 @@ void setup(){
 void draw() {
     background(180);
     fill(0);
-    text("Click Detected: "+ clickDetected,width/10,height/10);
-    fill(255);
-    rectMode(CORNER);
-    rect(xBox,yBox+(circleSize/2),boxWidth+circleSize,boxHeight);
-    rect(xBox+(circleSize/2),yBox,boxWidth,boxHeight+circleSize);
+    fill(0,0,255);
     ellipse(xBox+(circleSize/2),yBox+(circleSize/2),circleSize,circleSize);
     ellipse(xBox+(circleSize/2)+boxWidth,yBox+(circleSize/2),circleSize,circleSize);
     ellipse(xBox+(circleSize/2),yBox+(circleSize/2)+boxHeight,circleSize,circleSize);
     ellipse(xBox+(circleSize/2)+boxWidth,yBox+(circleSize/2)+boxHeight,circleSize,circleSize);
+    text("Click Detected: "+ clickDetected,width/10,height/10);
+    fill(255);
+    rectMode(CORNER);
+    fill(255,0,0);
+    rect(xBox,yBox+(circleSize/2),boxWidth+circleSize,boxHeight);
+    fill(0,255,0);
+    rect(xBox+(circleSize/2),yBox,boxWidth,boxHeight+circleSize);
     fill(0);
+    saveFrame();
 }
 
 void mouseClicked(){
