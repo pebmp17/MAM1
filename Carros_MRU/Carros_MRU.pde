@@ -27,12 +27,14 @@ void draw(){
     fill(fCarros[i][0],fCarros[i][1],fCarros[i][2]);
     rect (xCarros[i],i*30,20,20);
   }
+  saveFrame();
   if (end == 0){
      tAtual++;
   }
   else{
     noLoop();
-    background(180);
+    background(33,33,33);
+    fill(57,158,168);
     textSize(30);
     text("O vencedor foi o carro " + indVencedor, width/2-200, height/2);
     //println ("O vencedor foi o carro " + indVencedor);
@@ -40,11 +42,12 @@ void draw(){
 }
 
 void mostraMundo(int tamanho){
-  fill(255);
+  fill(33,33,33);
+  stroke(57,158,168);
   for (int i = 0; i<(width/tamanho); i++)
     for (int j = 0;j<(height/tamanho); j++)
       rect(i*tamanho,j*tamanho,tamanho,tamanho);
-    fill(255,0,0);
+    fill(57,158,168);
     rect(width-20,0,20,height);
 }
 
