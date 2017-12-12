@@ -60,7 +60,7 @@ void gui() {
   cp5.setColorForeground(color(0, 0, 40));
   cp5.setColorActive(color(0, 0, 60));
 
-  Group g1 = cp5.addGroup("Numero de divisoes")
+  Group g1 = cp5.addGroup("Numero de camadas")
     .setColorBackground(color(0, 0, 20))
     .setBackgroundColor(color(0, 0, 15));
   //.setBarHeight(15);
