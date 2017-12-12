@@ -100,7 +100,7 @@ void gui() {
   rbHar.activate(1);
 
 
-  Group g3 = cp5.addGroup("Quebras Verticais")
+  Group g3 = cp5.addGroup("Modificar Divisoes Verticais")
     .setColorBackground(color(0, 0, 20))
     .setBackgroundColor(color(0, 0, 15))
     .setBackgroundHeight(310);
@@ -245,7 +245,7 @@ void gui() {
     .setOpen(false)
     .moveTo(g3);
 
-  Group g4 = cp5.addGroup("Quebras Horizontais")
+  Group g4 = cp5.addGroup("Modificar Divisoes Horizontais")
     .setColorBackground(color(0, 0, 20))
     .setBackgroundColor(color(0, 0, 15))
     .setBackgroundHeight(310);
